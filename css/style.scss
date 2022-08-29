@@ -14,7 +14,6 @@
 // === /MIXINS ===
 
 // === VARIABLES ===
-
 $font-size-xs: 12px;
 $font-size-sm: 14px;
 $font-size-md: 16px;
@@ -29,13 +28,13 @@ $cl-text-primary-light: #ffffff;
 
 $cl-border-light: #e4e4e4;
 $cl-border-dark: #4d4d4d;
-
 // === /VARIABLES ===
 
 // === COMMONS ===
 body {
   @include pt-root-ui;
   font-size: $font-size-md;
+  font-weight: 500;
   color: $cl-text-primary-dark;
 }
 
@@ -54,7 +53,9 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
+// === /COMMONS ===
 
+// === COMPONENTS ===
 .logo {
   display: flex;
   align-items: center;
@@ -143,19 +144,69 @@ body {
   white-space: nowrap;
   cursor: pointer;
 }
-
-// === /COMMONS ===
+// === /COMPONENTS ===
 
 // === HEADER ===
-
 .header__container {
   max-width: 100%;
 }
-
 // === / HEADER ===
 
-// === FOOTER ===
+// === HERO ===
+.hero__container {
+}
 
+.hero {
+  position: relative;
+  height: 120vh;
+  text-align: center;
+  color: $cl-text-primary-light;
+  background: url('../img/hero-background.jfif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+
+  &__image-forward {
+    position: absolute;
+    inset: 0;
+    height: 120vh;
+    background: url('/img/hero-background-down.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    z-index: 10;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__fixed {
+    position: fixed;
+    top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  &__title {
+    @include druk-cyr;
+    font-size: 96px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    font-size: $font-size-xl;
+    line-height: 140%;
+    width: 50%;
+  }
+}
+// === / HERO ===
+
+// === FOOTER ===
 .footer__container {
   max-width: 100%;
 }
@@ -163,5 +214,4 @@ body {
 .footer {
   background-color: $cl-text-primary-dark;
 }
-
 // === / FOOTER ===
