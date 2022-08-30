@@ -60,7 +60,6 @@ button::-moz-focus-inner {
 
 a,
 a:visited {
-  cursor: pointer;
   text-decoration: none;
 }
 
