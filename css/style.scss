@@ -54,6 +54,7 @@ body {
 [class*='__container'] {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 96px 0;
 }
 // === /COMMONS ===
 
@@ -72,10 +73,9 @@ body {
 
   & > * {
     border: 1px solid $cl-border-light;
-    border-right: none;
 
-    &:last-child {
-      border: 1px solid $cl-border-light;
+    &:not(:last-child) {
+      border-right: none;
     }
   }
 
@@ -113,10 +113,9 @@ body {
 
     & > * {
       border: 1px solid $cl-border-dark;
-      border-right: none;
 
-      &:last-child {
-        border: 1px solid $cl-border-dark;
+      &:not(:last-child) {
+        border-right: none;
       }
     }
 
@@ -151,6 +150,7 @@ body {
   @include druk-cyr;
   font-size: $font-size-xxxxl;
   text-transform: uppercase;
+  margin-bottom: 40px;
 }
 
 .count-block {
@@ -177,24 +177,60 @@ body {
     text-transform: lowercase;
   }
 }
+
+.work-card {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $cl-border-light;
+  padding: 24px;
+  padding-top: 0;
+
+  &__image {
+    width: 100%;
+    margin-bottom: 24px;
+    object-fit: cover;
+
+    &-wrapper {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-xxl;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  &__description {
+    line-height: 140%;
+    margin-bottom: 24px;
+  }
+
+  &__link {
+    justify-content: flex-start;
+    padding: 0;
+    margin-top: auto;
+  }
+}
 // === /COMPONENTS ===
 
 // === HEADER ===
-.header__container {
-  max-width: 100%;
+.header {
+  &__container {
+    padding: 0;
+    max-width: 100%;
+  }
 }
 // === / HEADER ===
 
 // === HERO ===
-.hero__container {
-}
-
 .hero {
   position: relative;
   height: 120vh;
   text-align: center;
   color: $cl-text-primary-light;
-  background: url('../img/hero-background.jfif');
+  background: url('../img/hero/hero-background.jfif');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
@@ -203,7 +239,7 @@ body {
     position: absolute;
     inset: 0;
     height: 120vh;
-    background: url('/img/hero-background-down.png');
+    background: url('../img/hero/hero-background-down.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
@@ -215,7 +251,7 @@ body {
   }
 
   &__fixed {
-    position: fixed;
+    //position: fixed;
     top: 160px;
     display: flex;
     flex-direction: column;
@@ -240,28 +276,29 @@ body {
 // === /HERO ===
 
 // === MAP ===
-.map__container {
-  position: absolute;
-  top: -170px;
-  left: 50%;
-  margin-left: -600px;
-  height: 620px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-right: 815px;
-  background: url('/img/map-background.svg');
-  background-repeat: no-repeat;
-  background-position: right;
-  background-color: $cl-text-primary-light;
-  box-shadow: 0px 64px 72px rgba(46, 46, 46, 0.03), 0px 32px 32px rgba(46, 46, 46, 0.02),
-    0px 12px 12px rgba(46, 46, 46, 0.01);
-  z-index: 20;
-}
-
 .map {
   position: relative;
   height: 450px;
+
+  &__container {
+    position: absolute;
+    top: -170px;
+    left: 50%;
+    margin-left: -600px;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    padding-right: 815px;
+    background: url('../img/map/map-background.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: $cl-text-primary-light;
+    box-shadow: 0px 64px 72px rgba(46, 46, 46, 0.03), 0px 32px 32px rgba(46, 46, 46, 0.02),
+      0px 12px 12px rgba(46, 46, 46, 0.01);
+    z-index: 20;
+  }
 
   &__title {
     padding: 40px;
@@ -269,9 +306,27 @@ body {
 }
 // === /MAP ===
 
+// === WORK WITH ===
+.work-with {
+  &__container {
+    padding-top: 140px;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > *:not(:last-child) {
+      border-right: none;
+    }
+  }
+}
+// === /WORK WITH ===
+
 // === FOOTER ===
 .footer__container {
   max-width: 100%;
+  padding: 0;
 }
 
 .footer {
