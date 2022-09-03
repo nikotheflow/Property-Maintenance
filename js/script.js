@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     burgerBtn.classList.remove('active');
     navbarMenu.classList.remove('active');
     body.classList.remove('lock');
+    burgerBtnText.innerText = 'меню';
 
     removeScrollPadding();
   });

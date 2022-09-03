@@ -45,6 +45,8 @@ $cl-border-light: #e4e4e4;
 $cl-border-dark: #4d4d4d;
 
 $cl-slide-number: #707070;
+
+$cl-contrast: #8a8cce;
 // === /VARIABLES ===
 
 // === COMMONS ===
@@ -87,6 +89,7 @@ body {
   height: 100%;
   padding: 0 40px;
   border: 1px solid $cl-border-light;
+  background-color: inherit;
 }
 
 .link {
@@ -98,13 +101,12 @@ body {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  padding: 23px 40px;
   text-transform: lowercase;
   white-space: nowrap;
   cursor: pointer;
 
-  &_outline {
-    border: 1px solid $cl-border-light;
+  &:hover {
+    color: $cl-contrast;
   }
 
   &_ghost {
@@ -115,6 +117,11 @@ body {
     padding: 8px 0 0;
     border-bottom: 0.6px solid $cl-slide-number;
     margin-right: auto;
+
+    &:hover {
+      color: $cl-text-primary-light;
+      border-bottom: 0.6px solid $cl-text-primary-light;
+    }
   }
 
   &_round {
@@ -126,8 +133,8 @@ body {
   height: 64px;
   color: $cl-text-primary-dark;
   font-size: $font-size-lg;
-  border: 1px solid $cl-border-light;
-  background: transparent;
+  //background: transparent;
+  background: inherit;
   font-weight: 500;
   line-height: 90%;
   display: flex;
@@ -136,12 +143,35 @@ body {
   gap: 4px;
   padding: 0 40px;
   text-transform: lowercase;
+
   white-space: nowrap;
   cursor: pointer;
+
+  &_outline {
+    border: 1px solid $cl-border-light;
+
+    &:hover {
+      color: $cl-text-primary-light;
+      background-color: $cl-contrast;
+      border: 1px solid $cl-contrast;
+
+      svg {
+        stroke: $cl-text-primary-light;
+      }
+
+      & .burger-btn__icon {
+        span,
+        &::before,
+        &::after {
+          background-color: $cl-text-primary-light;
+        }
+      }
+    }
+  }
 }
 
 .burger-btn {
-  transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+  transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
 
   &__icon {
     position: relative;
@@ -172,9 +202,6 @@ body {
       content: '';
       bottom: 0;
     }
-  }
-
-  & > span {
   }
 }
 
@@ -317,20 +344,6 @@ body {
     height: 48px;
   }
 
-  & > *:not(:last-child) {
-    border-right: none;
-  }
-
-  &__logo {
-    background-color: $cl-text-primary-light;
-
-    @media (max-width: $breakpoints-md-max) {
-      width: 100%;
-      justify-content: flex-start;
-      padding-left: 16px;
-    }
-  }
-
   &__btn {
     height: 100%;
   }
@@ -339,31 +352,34 @@ body {
     display: none;
     padding: 0 16px;
     gap: 8px;
-    background-color: $cl-text-primary-light;
     z-index: 10;
 
     @media (max-width: $breakpoints-md-max) {
       display: flex;
 
       &.active {
-        & .burger-btn {
-          &__icon {
-            span {
-              transform: scale(0);
-            }
-
-            &::before {
-              transform: rotate(45deg);
-              top: 6px;
-            }
-
-            &::after {
-              transform: rotate(-45deg);
-              bottom: 6px;
-            }
+        & .burger-btn__icon {
+          span {
+            transform: scale(0);
+          }
+          &::before {
+            transform: rotate(45deg);
+            top: 6px;
+          }
+          &::after {
+            transform: rotate(-45deg);
+            bottom: 6px;
           }
         }
       }
+    }
+  }
+
+  &__contact-btn {
+    @media (max-width: $breakpoints-md-max) {
+      width: 100%;
+      height: 64px;
+      background-color: $cl-text-primary-light;
     }
   }
 
@@ -373,30 +389,6 @@ body {
     display: flex;
     align-items: center;
     transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
-
-    @media (max-width: $breakpoints-md-max) {
-      position: fixed;
-      bottom: -100%;
-      padding-bottom: 48px;
-      background-color: $cl-text-primary-dark;
-      flex-direction: column;
-
-      &.active {
-        bottom: -48px;
-
-        & .navbar__contact-btn {
-          bottom: 0;
-        }
-      }
-    }
-
-    & > * {
-      border: 1px solid $cl-border-light;
-
-      &:not(:last-child) {
-        border-right: none;
-      }
-    }
   }
 
   &__list {
@@ -406,29 +398,12 @@ body {
     width: 100%;
     height: 100%;
     padding: 12px 20px;
+    border: 1px solid $cl-border-light;
+    border-left: none;
+    border-right: none;
 
     @media (max-width: $breakpoints-lg-max) {
-      gap: 16px;
-    }
-
-    @media (max-width: $breakpoints-md-max) {
-      color: $cl-text-primary-light;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-      border: none;
-      padding: 12px 0;
-    }
-
-    &-btn {
-      @media (max-width: $breakpoints-md-max) {
-        path {
-          fill: $cl-text-primary-light;
-        }
-        rect {
-          stroke: $cl-border-dark;
-        }
-      }
+      gap: 20px;
     }
   }
 
@@ -444,21 +419,10 @@ body {
     text-transform: lowercase;
     white-space: nowrap;
     cursor: pointer;
-
-    @media (max-width: $breakpoints-md-max) {
-      padding: 12px 16px;
-    }
   }
 
-  &__contact-btn {
-    @media (max-width: $breakpoints-md-max) {
-      // position: fixed;
-      // bottom: -100%;
-      width: 100%;
-      height: 64px;
-      background-color: $cl-text-primary-light;
-      // transition: 0.8s cubic-bezier(0.87, 0, 0.13, 1);
-    }
+  &__link {
+    color: $cl-text-primary-dark;
   }
 
   &__divider {
@@ -469,26 +433,54 @@ body {
   }
 
   &_dark {
+    color: $cl-text-primary-light;
     background-color: $cl-text-primary-dark;
 
-    & > * {
-      border: 1px solid $cl-border-dark;
-
-      &:not(:last-child) {
-        border-right: none;
-      }
-    }
-
     .logo {
-      background-color: $cl-text-primary-dark;
-
+      border: 1px solid $cl-border-dark;
       path {
         fill: $cl-text-primary-light;
       }
     }
 
-    .navbar__divider {
-      background-color: $cl-border-dark;
+    .link {
+      color: $cl-text-primary-light;
+      &:hover {
+        color: $cl-contrast;
+      }
+    }
+
+    .btn {
+      color: $cl-text-primary-light;
+      path {
+        stroke: $cl-text-primary-light;
+      }
+      &_outline {
+        border: 1px solid $cl-border-dark;
+      }
+    }
+
+    .navbar {
+      &__list {
+        border-top: 1px solid $cl-border-dark;
+        border-bottom: 1px solid $cl-border-dark;
+        &-btn {
+          path {
+            fill: $cl-text-primary-light;
+          }
+          rect {
+            stroke: $cl-border-dark;
+          }
+        }
+      }
+    }
+
+    .burger-btn__icon {
+      span,
+      &::before,
+      &::after {
+        background-color: $cl-text-primary-light;
+      }
     }
   }
 }
@@ -504,9 +496,66 @@ body {
     @media (max-width: $breakpoints-md-max) {
       top: -48px;
     }
+  }
 
-    .logo {
-      z-index: 10;
+  .navbar {
+    .link {
+      @media (max-width: $breakpoints-md-max) {
+        color: $cl-text-primary-light;
+
+        &:hover {
+          color: $cl-contrast;
+        }
+      }
+    }
+
+    &__logo {
+      @media (max-width: $breakpoints-md-max) {
+        width: 100%;
+        justify-content: flex-start;
+        padding-left: 16px;
+        border-right: none;
+      }
+    }
+
+    &__menu {
+      @media (max-width: $breakpoints-md-max) {
+        position: fixed;
+        bottom: -100%;
+        padding-bottom: 48px;
+        flex-direction: column;
+        background-color: $cl-text-primary-dark;
+
+        &.active {
+          bottom: -48px;
+        }
+      }
+    }
+
+    &__list {
+      @media (max-width: $breakpoints-md-max) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        border: none;
+        padding: 12px 0;
+      }
+
+      &-btn {
+        @media (max-width: $breakpoints-md-max) {
+          path {
+            fill: $cl-text-primary-light;
+          }
+          rect {
+            stroke: $cl-border-dark;
+          }
+        }
+      }
+    }
+    &__item {
+      @media (max-width: $breakpoints-md-max) {
+        padding: 12px 16px;
+      }
     }
   }
 
@@ -769,10 +818,13 @@ body {
   }
 
   &__navbar {
-    .logo {
-      width: 150px;
-      justify-content: center;
+    .navbar__list {
+      border-right: 1px solid $cl-border-dark;
     }
+    // .logo {
+    //   width: 150px;
+    //   justify-content: center;
+    // }
   }
 
   &__info {
