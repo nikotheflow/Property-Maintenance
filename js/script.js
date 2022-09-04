@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     burgerBtn = document.querySelector('.burger-btn'),
     burgerBtnText = document.querySelector('.burger-btn__text'),
     navbarMenu = document.querySelector('.navbar__menu'),
-    dropdownMenu = document.querySelector('.navbar__dropdown'),
-    dropdownLinks = document.querySelectorAll('.navbar__dropdown-link');
+    dropdownLinks = document.querySelectorAll('.navbar__item[data-link="dropdown"]');
 
   let scrollWidth = window.innerWidth - body.clientWidth,
     burgerBtnPaddingRight = parseInt(window.getComputedStyle(burgerBtn).paddingRight);
@@ -46,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   dropdownLinks.forEach((link) =>
     link.addEventListener('click', () => {
-      dropdownMenu.classList.toggle('active');
+      if (body.clientWidth < 991.98) {
+        link.classList.toggle('active');
+      }
     }),
   );
-
-  console.log(dropdownLinks);
 
   function removeScrollPadding() {
     body.style.paddingRight = 0;

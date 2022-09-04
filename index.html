@@ -43,46 +43,42 @@
 
           <div class="navbar__menu">
             <ul class="navbar__list">
-              <li class="navbar__item">
-                <div class="navbar__link-wrapper">
-                  <a class="navbar__link navbar__dropdown-link link">Управление недвижимостью</a>
-                  <svg class="navbar__list-btn" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M8.25 9.75V12H9.75V9.75H12V8.25H9.75V6H8.25V8.25H6V9.75H8.25Z" fill="#2E2E2E" />
-                    <rect x="1" y="1" width="16" height="16" rx="8" stroke="#E4E4E4" />
-                  </svg>
-                </div>
-                <div class="navbar__dropdown">
-                  <a class="navbar__dropdown-item navbar__link link">Технический аудит недвижимости</a>
-                  <a class="navbar__dropdown-item navbar__link link">Эксплуатация и техническое обслуживание
-                    недвижимости</a>
-                  <a class="navbar__dropdown-item navbar__link link">Пожарная безопасность</a>
-                  <a class="navbar__dropdown-item navbar__link link">Клининг</a>
-                  <a class="navbar__dropdown-item navbar__link link">Управление арендными отношениями</a>
-                  <a class="navbar__dropdown-item navbar__link link">Аварийно-диспетчерская служба</a>
-                </div>
-
+              <li class="navbar__item" data-link="dropdown">
+                <a class="navbar__link link"><span>Управление недвижимостью</span>
+                  <div class="navbar__list-btn">
+                  </div>
+                </a>
+                <ul class="navbar__dropdown">
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Технический аудит
+                      недвижимости</a></li>
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Эксплуатация и техническое
+                      обслуживание недвижимости</a></li>
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Пожарная безопасность</a>
+                  </li>
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Клининг</a></li>
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Управление арендными
+                      отношениями</a></li>
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Аварийно-диспетчерская
+                      служба</a></li>
+                </ul>
               </li>
               <li class="navbar__item">
-                <div class="navbar__link-wrapper">
-                  <a class="navbar__link link">Продажа и аренда</a>
-                </div>
+                <a class="navbar__link link">Продажа и аренда</a>
               </li>
-              <li class="navbar__item">
-                <div class="navbar__link-wrapper"><a class="navbar__link navbar__dropdown-link link">Консалтинг</a>
-                  <svg class="navbar__list-btn" width="18" height="18" viewBox="0 0 18 18" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M8.25 9.75V12H9.75V9.75H12V8.25H9.75V6H8.25V8.25H6V9.75H8.25Z" fill="#2E2E2E" />
-                    <rect x="1" y="1" width="16" height="16" rx="8" stroke="#E4E4E4" />
-                  </svg>
-                </div>
-
+              <li class="navbar__item" data-link="dropdown">
+                <a class="navbar__link link">Консалтинг
+                  <div class="navbar__list-btn">
+                  </div>
+                </a>
+                <ul class="navbar__dropdown">
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Бухгалтерские и кадровые услуги</a>
+                  </li>
+                  <li class="navbar__dropdown-item"><a class="navbar__link link">Юридическое сопровождение</a></li>
+                </ul>
               </li>
             </ul>
             <button class="navbar__contact-btn navbar__btn btn btn_outline">Связаться с нами
-              <svg class="navbar__list-btn" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2E2E2E"
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2E2E2E"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 5.5H11.5M11.5 5.5V12.5M11.5 5.5L5.01852 11.9815" stroke-width="1.5"
                   stroke-linejoin="bevel" />
