@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
     headerNavbar = document.querySelector('.header__navbar'),
     burgerBtn = document.querySelector('.burger-btn'),
     burgerBtnText = document.querySelector('.burger-btn__text'),
+    contactBtn = document.querySelector('.navbar__contact-btn'),
     navbarMenu = document.querySelector('.navbar__menu'),
-    dropdownLinks = document.querySelectorAll('.navbar__item[data-link="dropdown"]');
+    dropdownLinks = document.querySelectorAll('.navbar__item[data-link="dropdown"]'),
+    popup = document.querySelector('.popup'),
+    popupCloseBtn = document.querySelector('.popup__close-btn');
 
   let scrollWidth = window.innerWidth - body.clientWidth,
     burgerBtnPaddingRight = parseInt(window.getComputedStyle(burgerBtn).paddingRight);
@@ -56,6 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }),
   );
+
+  contactBtn.addEventListener('click', () => {
+    popup.classList.toggle('active');
+  });
+
+  popupCloseBtn.addEventListener('click', () => {
+    popup.classList.remove('active');
+  });
 
   function removeScrollPadding() {
     body.style.paddingRight = 0;

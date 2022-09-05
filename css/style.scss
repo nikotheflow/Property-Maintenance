@@ -208,6 +208,36 @@ body {
   }
 }
 
+.close-btn {
+  &__icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      inset: 0;
+      background-color: $cl-text-primary-light;
+    }
+
+    &:before {
+      top: 7px;
+      left: -2px;
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      top: 7px;
+      left: -2px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -521,6 +551,136 @@ body {
   }
 }
 
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  top: 100%;
+  color: $cl-text-primary-light;
+  background-color: $cl-text-primary-dark;
+  padding: 89px 40px 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+  transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+
+  &.active {
+    top: 0;
+
+    .popup__navbar {
+      top: 0;
+    }
+  }
+
+  &__navbar {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    border-bottom: 1px solid $cl-border-dark;
+    transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+
+    .logo,
+    .navbar__btn {
+      border-bottom: none;
+    }
+  }
+
+  &__title {
+    @include druk-cyr;
+    font-size: 96px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    font-size: $font-size-xl;
+    line-height: 140%;
+  }
+
+  &__contacts-list {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 16px;
+  }
+
+  &__form {
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    align-content: end;
+
+    &-label {
+      margin-bottom: 16px;
+    }
+
+    &-label:nth-child(2) {
+      margin-bottom: 32px;
+    }
+
+    &-btn {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.form {
+  &__btn {
+    width: 100%;
+    padding: 24px 40px;
+    background-color: $cl-text-primary-light;
+  }
+
+  &__label {
+    position: relative;
+    @include druk-cyr;
+    color: $cl-text-primary-light;
+    font-size: $font-size-xxxl;
+    line-height: 110%;
+    text-transform: uppercase;
+
+    &-text {
+      line-height: 110%;
+      position: absolute;
+      left: 0;
+      transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+    }
+  }
+
+  &__input {
+    width: 100%;
+    font-size: 40px;
+    color: inherit;
+    text-transform: inherit;
+    background: transparent;
+    border-bottom: 1px solid $cl-border-dark;
+
+    &:hover {
+      border-bottom: 1px solid $cl-text-primary-light;
+    }
+
+    &:focus ~ .form__label-text,
+    &:not(:placeholder-shown) ~ .form__label-text {
+      color: $cl-text-secondary-light;
+      font-size: 10px;
+      top: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0;
+  }
+
+  &__text {
+    color: $cl-slide-number;
+    font-size: $font-size-xs;
+  }
+}
+
 .section-title {
   @include druk-cyr;
   font-size: $font-size-xxxxl;
@@ -645,11 +805,38 @@ body {
     }
   }
 }
+
+.contacts-list {
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: $font-size-xs;
+    color: $cl-slide-number;
+    text-transform: lowercase;
+    margin-bottom: 8px;
+  }
+
+  &__value {
+    display: flex;
+    gap: 12px;
+    font-size: $font-size-xl;
+    line-height: 140%;
+  }
+}
+
 // === /COMPONENTS ===
 
 // === HEADER ===
 .header {
   z-index: 10;
+
+  &__container {
+    padding: 0;
+    max-width: 100%;
+  }
 
   &__navbar {
     transition: 0.8s cubic-bezier(0.33, 1, 0.68, 1);
@@ -736,13 +923,7 @@ body {
       }
     }
   }
-
-  &__container {
-    padding: 0;
-    max-width: 100%;
-  }
 }
-
 // === / HEADER ===
 
 // === HERO ===
@@ -1015,36 +1196,22 @@ body {
     grid-template-columns: 150px 1fr;
   }
 
-  &__contacts {
+  &__contacts-list {
     grid-column: 2/3;
     display: flex;
     justify-content: space-between;
     border-left: 1px solid $cl-border-dark;
     padding: 40px 20px;
 
-    &-item {
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      padding: 0 4px 12px;
-    }
+    .contacts-list {
+      &__item {
+        max-width: 300px;
+        padding: 0 4px 12px;
+      }
 
-    &-title {
-      font-size: $font-size-xs;
-      color: $cl-slide-number;
-      text-transform: lowercase;
-      margin-bottom: 8px;
-    }
-
-    &-value {
-      display: flex;
-      gap: 12px;
-      font-size: $font-size-xl;
-      line-height: 140%;
-    }
-
-    &-link {
-      padding-left: 0;
+      &__link {
+        padding-left: 0;
+      }
     }
   }
 
