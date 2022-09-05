@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 500);
 
   burgerBtn.addEventListener('click', function () {
+    dropdownLinks.forEach((link) => link.classList.remove('active'));
+
     burgerBtn.classList.toggle('active');
     navbarMenu.classList.toggle('active');
     body.classList.toggle('lock');
@@ -46,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
   dropdownLinks.forEach((link) =>
     link.addEventListener('click', () => {
       if (body.clientWidth < 991.98) {
+        Array.from(dropdownLinks)
+          .filter((filterLink) => filterLink !== link)
+          .forEach((link) => link.classList.remove('active'));
+
         link.classList.toggle('active');
       }
     }),
