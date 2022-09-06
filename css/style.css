@@ -149,6 +149,19 @@ body {
   padding: 96px 40px;
 }
 
+.ui-text_headline-h2 {
+  font-family: 'Druk Cyr', sans-serif;
+  font-size: 72px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Druk Cyr', sans-serif;
+  font-size: 72px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
 .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -672,12 +685,12 @@ body {
   border-bottom: 1px solid #4d4d4d;
 }
 
-.navbar_dark .navbar__list-btn path {
-  fill: #ffffff;
+.navbar_dark .navbar__list-btn {
+  border: 1px solid #4d4d4d;
 }
 
-.navbar_dark .navbar__list-btn rect {
-  stroke: #4d4d4d;
+.navbar_dark .navbar__list-btn::before, .navbar_dark .navbar__list-btn::after {
+  background-color: #ffffff;
 }
 
 .navbar_dark .burger-btn__icon span, .navbar_dark .burger-btn__icon::before, .navbar_dark .burger-btn__icon::after {
@@ -833,13 +846,6 @@ body {
 .form__text {
   color: #707070;
   font-size: 12px;
-}
-
-.section-title {
-  font-family: 'Druk Cyr', sans-serif;
-  font-size: 72px;
-  text-transform: uppercase;
-  margin-bottom: 40px;
 }
 
 .count-block {
@@ -1421,10 +1427,6 @@ body {
   text-shadow: 1px 0 1px #ffffff, 0 1px 1px #ffffff, -1px 0 1px #ffffff, 0 -1px 1px #ffffff;
 }
 
-.footer__navbar .navbar__list {
-  border-right: 1px solid #4d4d4d;
-}
-
 .footer__info {
   display: -ms-grid;
   display: grid;
@@ -1464,6 +1466,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border-top: 1px solid #4d4d4d;
   border-left: 1px solid #4d4d4d;
   gap: 20px;

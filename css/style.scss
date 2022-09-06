@@ -82,6 +82,21 @@ body {
 // === /COMMONS ===
 
 // === COMPONENTS ===
+.ui-text {
+  &_headline-h2 {
+    @include druk-cyr;
+    font-size: $font-size-xxxxl;
+    text-transform: uppercase;
+  }
+}
+
+.section-title {
+  @include druk-cyr;
+  font-size: $font-size-xxxxl;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -531,11 +546,10 @@ body {
         border-top: 1px solid $cl-border-dark;
         border-bottom: 1px solid $cl-border-dark;
         &-btn {
-          path {
-            fill: $cl-text-primary-light;
-          }
-          rect {
-            stroke: $cl-border-dark;
+          border: 1px solid $cl-border-dark;
+          &::before,
+          &::after {
+            background-color: $cl-text-primary-light;
           }
         }
       }
@@ -679,13 +693,6 @@ body {
     color: $cl-slide-number;
     font-size: $font-size-xs;
   }
-}
-
-.section-title {
-  @include druk-cyr;
-  font-size: $font-size-xxxxl;
-  text-transform: uppercase;
-  margin-bottom: 40px;
 }
 
 .count-block {
@@ -1182,9 +1189,9 @@ body {
   }
 
   &__navbar {
-    .navbar__list {
-      border-right: 1px solid $cl-border-dark;
-    }
+    // .navbar__list {
+    //   border-right: 1px solid $cl-border-dark;
+    // }
     // .logo {
     //   width: 150px;
     //   justify-content: center;
@@ -1220,6 +1227,7 @@ body {
     font-size: $font-size-xs;
     color: $cl-slide-number;
     display: flex;
+    align-items: center;
     border-top: 1px solid $cl-border-dark;
     border-left: 1px solid $cl-border-dark;
     gap: 20px;
