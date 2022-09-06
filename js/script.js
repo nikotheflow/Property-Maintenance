@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function () {
     navbarMenu = document.querySelector('.navbar__menu'),
     dropdownLinks = document.querySelectorAll('.navbar__item[data-link="dropdown"]'),
     popup = document.querySelector('.popup'),
-    popupCloseBtn = document.querySelector('.navbar__btn-close');
+    popupFormBtn = document.querySelector('.popup__form-btn'),
+    popupCloseBtn = document.querySelector('.navbar__btn-close'),
+    popupReturnBtn = document.querySelector('.popup__return-btn'),
+    popupFormState = document.querySelector('.popup__wrapper-form'),
+    popupSuccessState = document.querySelector('.popup__wrapper-success');
 
   let scrollWidth = window.innerWidth - body.clientWidth,
     burgerBtnPaddingRight = parseInt(window.getComputedStyle(burgerBtn).paddingRight);
@@ -31,22 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     headerNavbar.style.top = 0;
   }, 500);
 
-  burgerBtn.addEventListener('click', function () {
-    dropdownLinks.forEach((link) => link.classList.remove('active'));
-
-    burgerBtn.classList.toggle('active');
-    navbarMenu.classList.toggle('active');
-    body.classList.toggle('lock');
-
-    burgerBtnText.innerText = burgerBtn.classList.contains('active') ? 'закрыть' : 'меню';
-
-    if (body.classList.contains('lock')) {
-      body.style.paddingRight = `${scrollWidth}px`;
-      burgerBtn.style.paddingRight = `${scrollWidth + burgerBtnPaddingRight}px`;
-    } else {
-      removeScrollPadding();
-    }
-  });
+  burgerBtn.addEventListener('click', clickBurgerBtn);
 
   dropdownLinks.forEach((link) =>
     link.addEventListener('click', () => {
@@ -62,11 +51,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
   contactBtn.addEventListener('click', () => {
     popup.classList.toggle('active');
+
+    popupFormState.classList.add('active');
+    popupSuccessState.classList.remove('active');
+  });
+
+  popupFormBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    popupSuccessState.classList.add('active');
+    popupFormState.classList.remove('active');
   });
 
   popupCloseBtn.addEventListener('click', () => {
     popup.classList.remove('active');
   });
+
+  popupReturnBtn.addEventListener('click', () => {
+    popup.classList.remove('active');
+
+    if (body.clientWidth < 991.98) {
+      clickBurgerBtn();
+    }
+  });
+
+  function clickBurgerBtn() {
+    dropdownLinks.forEach((link) => link.classList.remove('active'));
+
+    burgerBtn.classList.toggle('active');
+    navbarMenu.classList.toggle('active');
+    body.classList.toggle('lock');
+
+    burgerBtnText.innerText = burgerBtn.classList.contains('active') ? 'закрыть' : 'меню';
+
+    if (body.classList.contains('lock')) {
+      body.style.paddingRight = `${scrollWidth}px`;
+      burgerBtn.style.paddingRight = `${scrollWidth + burgerBtnPaddingRight}px`;
+    } else {
+      removeScrollPadding();
+    }
+  }
 
   function removeScrollPadding() {
     body.style.paddingRight = 0;
