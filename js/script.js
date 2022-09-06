@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const body = document.querySelector('body'),
     heroBehind = document.querySelector('.hero__image-behind'),
     headerNavbar = document.querySelector('.header__navbar'),
-    burgerBtn = document.querySelector('.burger-btn'),
-    burgerBtnText = document.querySelector('.burger-btn__text'),
-    contactBtn = document.querySelector('.navbar__contact-btn'),
+    burgerBtn = document.querySelector('.btn-burger'),
+    burgerBtnText = document.querySelector('.btn-burger__text'),
+    contactBtn = document.querySelector('.navbar__btn-contact'),
     navbarMenu = document.querySelector('.navbar__menu'),
     dropdownLinks = document.querySelectorAll('.navbar__item[data-link="dropdown"]'),
     popup = document.querySelector('.popup'),
-    popupCloseBtn = document.querySelector('.popup__close-btn');
+    popupCloseBtn = document.querySelector('.navbar__btn-close');
 
   let scrollWidth = window.innerWidth - body.clientWidth,
     burgerBtnPaddingRight = parseInt(window.getComputedStyle(burgerBtn).paddingRight);

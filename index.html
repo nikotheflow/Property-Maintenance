@@ -34,18 +34,17 @@
                 fill="#2E2E2E" />
             </svg>
           </div>
-          <button class="navbar__burger-btn navbar__btn burger-btn btn btn_outline">
-            <div class="burger-btn__icon">
+          <button class="navbar__btn-burger btn btn-burger">
+            <div class="btn-burger__icon">
               <span></span>
             </div>
-            <span class="burger-btn__text">Меню</span>
+            <span class="btn-burger__text">Меню</span>
           </button>
-
           <div class="navbar__menu">
             <ul class="navbar__list">
               <li class="navbar__item" data-link="dropdown">
                 <a class="navbar__link link"><span>Управление недвижимостью</span>
-                  <div class="navbar__list-btn">
+                  <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
                 <ul class="navbar__dropdown">
@@ -67,7 +66,7 @@
               </li>
               <li class="navbar__item" data-link="dropdown">
                 <a class="navbar__link link">Консалтинг
-                  <div class="navbar__list-btn">
+                  <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
                 <ul class="navbar__dropdown">
@@ -77,7 +76,7 @@
                 </ul>
               </li>
             </ul>
-            <button class="navbar__contact-btn navbar__btn btn btn_outline">Связаться с нами
+            <button class="navbar__btn-contact btn">Связаться с нами
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2E2E2E"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 5.5H11.5M11.5 5.5V12.5M11.5 5.5L5.01852 11.9815" stroke-width="1.5"
@@ -86,7 +85,6 @@
             </button>
           </div>
         </nav>
-
         <div class="header__popup popup">
           <nav class="popup__navbar navbar navbar_dark">
             <div class="navbar__logo logo">
@@ -109,8 +107,8 @@
                   fill="#2E2E2E" />
               </svg>
             </div>
-            <button class="popup__close-btn close-btn btn btn_outline">
-              <div class="close-btn__icon">
+            <button class="navbar__btn-close btn btn-close">
+              <div class="btn-close__icon">
                 <span></span>
               </div>
             </button>
@@ -141,7 +139,7 @@
               <span class="form__label-text">Телефон</span>
             </label>
 
-            <button class="popup__form-btn form__btn btn btn_outline">Заказать обратный звонок
+            <button class="popup__form-btn form__btn btn">Заказать обратный звонок
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2E2E2E"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 5.5H11.5M11.5 5.5V12.5M11.5 5.5L5.01852 11.9815" stroke-width="1.5"
@@ -260,7 +258,7 @@
         <div class="news__container">
           <div class="news__header">
             <h2 class="news__title section-title">Наши новости</h2>
-            <a href="#" class="news__link link btn_outline">Все новости
+            <a href="#" class="news__link link btn">Все новости
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.5 5.5H11.5M11.5 5.5V12.5M11.5 5.5L5.01852 11.9815" stroke="#2E2E2E" stroke-width="1.5"
                   stroke-linejoin="bevel" />
@@ -326,6 +324,7 @@
               чтобы обсудить подробности</span>
           </div>
         </div>
+
         <nav class="footer__navbar navbar navbar_dark">
           <div class="navbar__logo logo">
             <svg width="69" height="12" viewBox="0 0 69 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -347,18 +346,11 @@
                 fill="#2E2E2E" />
             </svg>
           </div>
-          <button class="navbar__burger-btn navbar__btn burger-btn btn btn_outline">
-            <div class="burger-btn__icon">
-              <span></span>
-            </div>
-            <span class="burger-btn__text">Меню</span>
-          </button>
-
           <div class="navbar__menu">
             <ul class="navbar__list">
               <li class="navbar__item" data-link="dropdown">
                 <a class="navbar__link link"><span>Управление недвижимостью</span>
-                  <div class="navbar__list-btn">
+                  <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
                 <ul class="navbar__dropdown">
@@ -380,7 +372,7 @@
               </li>
               <li class="navbar__item" data-link="dropdown">
                 <a class="navbar__link link">Консалтинг
-                  <div class="navbar__list-btn">
+                  <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
                 <ul class="navbar__dropdown">
@@ -392,10 +384,8 @@
               <li class="navbar__divider"></li>
               <li class="navbar__item"><a class="navbar__link link">Новости</a></li>
             </ul>
-
           </div>
         </nav>
-
         <div class="footer__info">
           <ul class="footer__contacts-list contacts-list">
             <li class="footer__contacts-item contacts-list__item">
@@ -415,7 +405,7 @@
             <li class="footer__contacts-item contacts-list__item">
               <span class="footer__contacts-title contacts-list__title">Следите за нами</span>
               <div class="footer__contacts-value contacts-list__value">
-                <a href="#" class="footer__contacts-link link link_round">
+                <a href="#" class="link btn btn-social">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="16.0003" cy="16.0003" r="13.3333" fill="#FFFFFF" />
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -423,7 +413,7 @@
                       fill="#4D4D4D" />
                   </svg>
                 </a>
-                <a href="#" class="footer__contacts-link link link_round">
+                <a href="#" class="link btn btn-social">
                   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="16.0003" cy="16.0003" r="13.3333" fill="#FFFFFF" />
                     <path fill-rule="evenodd" clip-rule="evenodd"
