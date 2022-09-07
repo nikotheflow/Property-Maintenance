@@ -1171,6 +1171,24 @@ body {
           align-items: center;
 }
 
+.hero__container::after, .hero__container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__container::after {
+  background: url("../img/filters/noise.gif");
+  opacity: 0.08;
+}
+
+.hero__container::before {
+  height: 70vh;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(26.09%, rgba(0, 0, 0, 0.16)), color-stop(50%, rgba(0, 0, 0, 0)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 26.09%, rgba(0, 0, 0, 0) 50%);
+}
+
 .hero__image-behind {
   position: absolute;
   width: 100vw;
@@ -1178,7 +1196,7 @@ body {
   inset: 0;
   -o-object-fit: cover;
      object-fit: cover;
-  z-index: -2;
+  z-index: -3;
 }
 
 .hero__image-front {

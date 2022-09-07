@@ -958,6 +958,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    &::after {
+      background: url('../img/filters/noise.gif');
+      opacity: 0.08;
+    }
+
+    &::before {
+      height: 70vh;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.16) 26.09%, rgba(0, 0, 0, 0) 50%);
+    }
   }
 
   &__image-behind {
@@ -966,7 +984,7 @@ body {
     height: 100vh;
     inset: 0;
     object-fit: cover;
-    z-index: -2;
+    z-index: -3;
   }
 
   &__image-front {
