@@ -936,28 +936,47 @@ body {
 }
 
 .work-card {
+  position: relative;
   width: 33.33%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 24px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border: 1px solid #e4e4e4;
-  padding: 24px;
-  padding-top: 0;
+  background-color: transparent;
+  padding: 0 24px 24px;
+  -webkit-transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.work-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background-color: #8a8cce;
+  -webkit-transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  z-index: -1;
 }
 
 .work-card__image {
   width: 100%;
-  margin-bottom: 24px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .work-card__image-wrapper {
   width: 100%;
+}
+
+.work-card__image path {
+  -webkit-transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+  transition: 0.2s cubic-bezier(0.87, 0, 0.13, 1);
 }
 
 .work-card__title {
@@ -968,7 +987,38 @@ body {
 
 .work-card__description {
   line-height: 140%;
-  margin-bottom: 24px;
+}
+
+.work-card__link {
+  font-size: 18px;
+}
+
+.work-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.work-card:hover {
+  color: #ffffff;
+}
+
+.work-card:hover::after {
+  height: 100%;
+}
+
+.work-card:hover .link {
+  color: inherit;
+}
+
+.work-card:hover .link path {
+  stroke: #ffffff;
+}
+
+.work-card:hover .work-card__image path {
+  stroke: #ffffff;
 }
 
 .news-card {
@@ -1273,10 +1323,6 @@ body {
   background: url("../img/map/map-background.svg") right no-repeat #ffffff;
   -webkit-box-shadow: 0px 64px 72px rgba(46, 46, 46, 0.03), 0px 32px 32px rgba(46, 46, 46, 0.02), 0px 12px 12px rgba(46, 46, 46, 0.01);
           box-shadow: 0px 64px 72px rgba(46, 46, 46, 0.03), 0px 32px 32px rgba(46, 46, 46, 0.02), 0px 12px 12px rgba(46, 46, 46, 0.01);
-}
-
-.work-with {
-  background-color: #ffffff;
 }
 
 .work-with__container {
