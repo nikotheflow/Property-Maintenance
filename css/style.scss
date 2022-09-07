@@ -53,8 +53,9 @@ $cl-contrast: #8a8cce;
 body {
   @include pt-root-ui;
   font-size: $font-size-md;
-  //font-weight: 500;
+  font-weight: 500;
   color: $cl-text-primary-dark;
+  overflow-x: hidden;
 
   @media (max-width: $breakpoints-md-max) {
     &.lock {
@@ -64,7 +65,7 @@ body {
 }
 
 .wrapper {
-  overflow: hidden;
+  //overflow-y: hidden;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -82,14 +83,6 @@ body {
 // === /COMMONS ===
 
 // === COMPONENTS ===
-.ui-text {
-  &_headline-h2 {
-    @include druk-cyr;
-    font-size: $font-size-xxxxl;
-    text-transform: uppercase;
-  }
-}
-
 .section-title {
   @include druk-cyr;
   font-size: $font-size-xxxxl;
@@ -798,6 +791,7 @@ body {
 
   &__description {
     line-height: 140%;
+    font-weight: 500;
   }
 
   &__link {
@@ -833,21 +827,25 @@ body {
   }
 }
 
-.news-card {
+.card {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-end;
   gap: 12px;
   padding: 24px;
-  border: 1px solid $cl-border-light;
+  color: $cl-text-primary-light;
   cursor: pointer;
 
-  &__date {
+  &__tag {
+    display: inline-block;
     font-size: $font-size-xs;
     padding: 4px 6px;
-    margin-right: auto;
-    border: 1px solid $cl-border-light;
     border-radius: 50px;
+    background: rgba($cl-text-primary-light, 0.24);
+    border: 1px solid rgba($cl-text-primary-light, 0.32);
+    text-transform: lowercase;
   }
 
   &__title {
@@ -857,36 +855,81 @@ body {
 
   &__description {
     font-size: $font-size-sm;
-    line-height: 140%;
+    line-height: 1.4;
   }
 
-  &_photo {
-    grid-row: 1/3;
-    position: relative;
-    color: $cl-text-primary-light;
-    border: none;
+  &__contacts {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    span {
+      opacity: 0.64;
+    }
+  }
+
+  &:before {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.72) 16.21%, rgba(0, 0, 0, 0) 50%),
-      url('../img/news-card/news-card-background-1.jfif') 50% 50% no-repeat;
-    background-size: cover;
+      url('../img/news-card/news-card-background-1.jfif') 50% 0% no-repeat;
+  }
 
-    &:after {
-      position: absolute;
-      content: '';
-      width: 100%;
+  &_type_person {
+    gap: 0;
+
+    &:before {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.72) 16.21%, rgba(0, 0, 0, 0) 50%),
+        url('../img/features/person.jfif') 50% 0% no-repeat;
+    }
+
+    .card {
+      &__tag {
+        margin-bottom: 12px;
+      }
+
+      &__title {
+        margin-bottom: 8px;
+      }
+
+      &__description {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &_size {
+    &_small {
+      color: $cl-text-primary-dark;
+      border: 1px solid $cl-border-light;
+
+      .card__tag {
+        border: 1px solid $cl-border-light;
+      }
+    }
+
+    &_normal {
       height: 100%;
-      inset: 0;
-      background: url('../img/filters/noise.gif');
-      opacity: 0.03;
-      z-index: 0;
-    }
 
-    & * {
-      z-index: 1;
-    }
+      &:before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        inset: 0;
 
-    .news-card__date {
-      background: rgba($cl-text-primary-light, 0.24);
-      border: 1px solid rgba($cl-text-primary-light, 0.32);
+        background-size: cover;
+        z-index: -1;
+      }
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        background: url('../img/filters/noise.gif');
+        opacity: 0.03;
+        z-index: -1;
+      }
     }
   }
 }
@@ -919,7 +962,6 @@ body {
     text-transform: none;
   }
 }
-
 // === /COMPONENTS ===
 
 // === HEADER ===
@@ -1068,7 +1110,8 @@ body {
   &__text {
     font-size: $font-size-xl;
     line-height: 140%;
-    width: 50%;
+    width: 70%;
+    font-weight: 500;
   }
 }
 // === /HERO ===
@@ -1131,8 +1174,24 @@ body {
     grid-column: 2/3;
   }
 
-  &__slide {
-    &-info {
+  &__slider {
+    grid-column: 1/3;
+  }
+
+  &-slide {
+    position: sticky;
+    top: 64px;
+    height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 35% auto;
+    background-color: $cl-text-primary-dark;
+
+    @media (max-width: $breakpoints-md-max) {
+      top: 48px;
+      height: calc(100vh - 48px);
+    }
+
+    &__info {
       grid-column: 1/2;
       display: flex;
       flex-direction: column;
@@ -1141,7 +1200,7 @@ body {
       border-right: none;
     }
 
-    &-number {
+    &__number {
       @include druk-cyr;
       color: $cl-slide-number;
       font-size: $font-size-xxxl;
@@ -1150,32 +1209,49 @@ body {
       border-bottom: 1px solid $cl-border-dark;
     }
 
-    &-text-block {
+    &__text-block {
       padding: 40px;
     }
 
-    &-title {
+    &__title {
       font-size: $font-size-xxl;
       font-weight: 700;
       margin-bottom: 12px;
     }
 
-    &-description {
+    &__description {
       line-height: 140%;
     }
 
-    &-image-wrapper {
+    &__image-wrapper {
       grid-column: 2/3;
-      height: 100vh;
-      background: url('../img/features/slide-1.png') center center no-repeat;
+      height: 100%;
       background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
 
-    &-image-filter {
+    &[data-slide-id='1'] {
+      .features-slide__image-wrapper {
+        background-image: url('../img/features/slide-1.png');
+      }
+    }
+    &[data-slide-id='2'] {
+      .features-slide__image-wrapper {
+        background-image: url('../img/features/slide-2.jfif');
+      }
+    }
+
+    &__image-filter {
       height: 100%;
       width: 100%;
       background: url('../img/filters/noise.gif');
       opacity: 0.06;
+    }
+
+    &__cards-slider {
+      display: flex;
+      overflow-x: auto;
     }
   }
 }
@@ -1183,8 +1259,6 @@ body {
 
 // === NEWS ===
 .news {
-  background-color: $cl-text-primary-light;
-
   &__title {
     margin: 0;
   }
@@ -1199,15 +1273,22 @@ body {
   &__cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 270px);
 
     & > :nth-child(2) {
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.72) 16.21%, rgba(0, 0, 0, 0) 50%),
         url('../img/news-card/news-card-background-2.jfif') 50% 50% no-repeat;
-      background-size: cover;
     }
 
     & > *:last-child {
       border-top: none;
+    }
+
+    .card_size_normal {
+      grid-row: 1/3;
+    }
+    .card_size_normal {
+      grid-row: 1/3;
     }
   }
 }
