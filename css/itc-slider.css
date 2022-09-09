@@ -1,0 +1,155 @@
+/*!
+* ItcSlider
+*   site: https://itchief.ru/javascript/slider
+*   github: https://github.com/itchief/ui-components
+*
+* Copyright 2018-2022 Alexander Maltsev
+* Licensed under MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+*/
+
+.slider {
+  /* position: relative; */
+  overflow: hidden;
+}
+
+.slider__container {
+  overflow: hidden;
+}
+
+.slider__wrapper {
+  overflow: hidden;
+}
+
+.slider__items {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.slider_disable-transition {
+  transition: none;
+}
+
+.slider__item {
+  flex: 0 0 50%;
+  max-width: 50%;
+  user-select: none;
+  will-change: transform;
+}
+
+/* кнопки влево и вправо */
+.slider__controls {
+  position: absolute;
+  display: flex;
+}
+
+.slider__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  text-align: center;
+  background: transparent;
+  border: 1px solid #4d4d4d;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border 0.2s ease;
+}
+
+.slider__control_hide {
+  border: 1px solid #4d4d4d;
+}
+
+.slider__control[data-slide='prev'] {
+  left: 0;
+}
+
+.slider__control[data-slide='next'] {
+  right: 0;
+}
+
+.slider__control:hover {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  outline: 0;
+  transition: border 0.2s ease;
+}
+
+.slider__control::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.slider__control_hide:hover {
+  border: 1px solid #4d4d4d;
+}
+
+/* индикаторы */
+
+.slider__indicators {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  margin: 0 15%;
+  padding-left: 0;
+  list-style: none;
+}
+
+.slider__indicators li {
+  flex: 0 1 auto;
+  box-sizing: content-box;
+  width: 30px;
+  height: 5px;
+  margin-right: 3px;
+  margin-left: 3px;
+  text-indent: -999px;
+  background-color: rgb(255 255 255 / 50%);
+  background-clip: padding-box;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  cursor: pointer;
+}
+
+.slider__indicators li.active {
+  background-color: rgb(255 255 255 / 90%);
+}
+
+.slider__control[data-slide='prev']::before {
+  background-image: url('data:image/svg+xml,\
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\
+  <path d="M6.94975 10.8995L2 5.94975M2 5.94975L6.94975 1M2 5.94975H11.1662" stroke="white" stroke-width="1.5"/>\
+  </svg>');
+}
+
+.slider__control[data-slide='next']::before {
+  background-image: url('data:image/svg+xml,\
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\
+  <path d="M6.94975 10.8995L2 5.94975M2 5.94975L6.94975 1M2 5.94975H11.1662" stroke="white" stroke-width="1.5"/>\
+  </svg>');
+  transform: rotate(180deg);
+}
+
+.slider__control_hide[data-slide='prev']::before {
+  background-image: url('data:image/svg+xml,\
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\
+  <path d="M6.94975 10.8995L2 5.94975M2 5.94975L6.94975 1M2 5.94975H11.1662" stroke="%234d4d4d" stroke-width="1.5"/>\
+  </svg>');
+}
+
+.slider__control_hide[data-slide='next']::before {
+  background-image: url('data:image/svg+xml,\
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\
+  <path d="M6.94975 10.8995L2 5.94975M2 5.94975L6.94975 1M2 5.94975H11.1662" stroke="%234d4d4d" stroke-width="1.5"/>\
+  </svg>');
+}
