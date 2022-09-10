@@ -46,6 +46,8 @@ $cl-border-dark: #4d4d4d;
 
 $cl-slide-number: #707070;
 
+$cl-shadow: #171717;
+
 $cl-contrast: #8a8cce;
 // === /VARIABLES ===
 
@@ -366,6 +368,22 @@ body {
       path {
         stroke: none;
       }
+    }
+  }
+
+  &-tickers {
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+    border: none;
+    color: $cl-text-primary-light;
+    background: rgba($cl-contrast, 0.64);
+    box-shadow: 0px 4px 4px rgba($cl-shadow, 0.2), 0px 8px 24px rgba($cl-shadow, 0.32);
+    backdrop-filter: blur(24px);
+    white-space: normal;
+
+    &:hover {
+      background: rgba($cl-contrast, 0.64);
     }
   }
 }
@@ -1391,9 +1409,9 @@ body {
   background-color: $cl-text-primary-dark;
 
   &__container {
-    height: 100%;
     display: flex;
     flex-direction: column;
+    height: 100%;
     max-width: 100%;
     padding: 0;
     margin: 0;
@@ -1408,7 +1426,23 @@ body {
     justify-content: center;
     gap: 4px;
     padding: 2vh 0;
-    //overflow: hidden;
+    cursor: none;
+
+    &-container {
+      position: relative;
+      overflow: hidden;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-70px, -70px) rotate(-15deg);
+      cursor: none;
+    }
   }
 
   &__ticker {

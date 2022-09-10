@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
     popup = document.querySelector('.popup'),
     popupFormBtn = document.querySelector('.popup__form-btn'),
     popupCloseBtn = document.querySelector('.navbar__btn-close'),
-    tickerRowContainers = document.querySelectorAll('.footer__ticker-row-container'),
     popupReturnBtn = document.querySelector('.popup__return-btn'),
     popupFormState = document.querySelector('.popup__wrapper-form'),
-    popupSuccessState = document.querySelector('.popup__wrapper-success');
+    popupSuccessState = document.querySelector('.popup__wrapper-success'),
+    tickerRowContainers = document.querySelectorAll('.footer__ticker-row-container'),
+    tickersSection = document.querySelector('.footer__tickers'),
+    tickersBtn = document.querySelector('.footer__tickers-btn');
 
   let scrollWidth = window.innerWidth - body.clientWidth,
     burgerBtnPaddingRight = parseInt(window.getComputedStyle(burgerBtn).paddingRight);
@@ -42,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 500);
 
   burgerBtn.addEventListener('click', clickBurgerBtn);
+  contactBtn.addEventListener('click', clickContactBtn);
+  tickersBtn.addEventListener('click', clickContactBtn);
 
   dropdownLinks.forEach((link) =>
     link.addEventListener('click', () => {
@@ -54,13 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }),
   );
-
-  contactBtn.addEventListener('click', () => {
-    popup.classList.toggle('active');
-
-    popupFormState.classList.add('active');
-    popupSuccessState.classList.remove('active');
-  });
 
   popupFormBtn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -81,6 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  tickersSection.addEventListener('mousemove', (e) => {
+    let tickersY = tickersSection.getBoundingClientRect().y;
+
+    tickersBtn.style.left = `${e.clientX}px`;
+    tickersBtn.style.top = `${e.clientY - tickersY}px`;
+  });
+
   function clickBurgerBtn() {
     dropdownLinks.forEach((link) => link.classList.remove('active'));
 
@@ -96,6 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       removeScrollPadding();
     }
+  }
+
+  function clickContactBtn() {
+    popup.classList.toggle('active');
+
+    popupFormState.classList.add('active');
+    popupSuccessState.classList.remove('active');
   }
 
   function removeScrollPadding() {
