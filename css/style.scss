@@ -372,9 +372,6 @@ body {
   }
 
   &-tickers {
-    width: 140px;
-    height: 140px;
-    border-radius: 70px;
     border: none;
     color: $cl-text-primary-light;
     background: rgba($cl-contrast, 0.64);
@@ -393,11 +390,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
   background-color: $cl-text-primary-light;
+  z-index: 5;
 
-  @media (max-width: $breakpoints-md-max) {
-    height: 48px;
+  @media (min-width: $breakpoints-lg-min) {
+    height: 64px;
   }
 
   &__btn-burger {
@@ -452,6 +449,10 @@ body {
 
     @media (max-width: $breakpoints-lg-max) {
       gap: 20px;
+    }
+
+    @media (max-width: $breakpoints-md-max) {
+      gap: 0px;
     }
   }
 
@@ -547,6 +548,10 @@ body {
     width: 1px;
     height: 16px;
     margin: 0px 8px;
+
+    @media (max-width: $breakpoints-md-max) {
+      display: none;
+    }
   }
 
   &__dropdown {
@@ -554,7 +559,9 @@ body {
     width: 100%;
     left: 0;
     overflow: hidden;
+    background-color: $cl-text-primary-dark;
     transition: 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+    z-index: 3;
 
     @media (min-width: $breakpoints-lg-min) {
       padding: 12px 0;
@@ -1068,6 +1075,7 @@ body {
     transition: 0.6s cubic-bezier(0.33, 1, 0.68, 1);
 
     @media (max-width: $breakpoints-md-max) {
+      height: 48px;
       top: -48px;
     }
   }
@@ -1404,9 +1412,48 @@ body {
 
 // === FOOTER ===
 .footer {
-  height: 100vh;
   color: $cl-text-primary-light;
   background-color: $cl-text-primary-dark;
+
+  @media (min-width: $breakpoints-lg-min) {
+    height: 100vh;
+  }
+
+  .navbar {
+    background-color: $cl-text-primary-dark;
+
+    @media (max-width: $breakpoints-md-max) {
+      flex-direction: column;
+
+      &__logo {
+        height: 64px;
+        width: 100%;
+      }
+
+      &__list {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+      }
+
+      &__link {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    &__item {
+      &[data-link='dropdown']:hover {
+        & > .navbar__dropdown {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    &__dropdown {
+      border-color: $cl-border-dark;
+    }
+  }
 
   &__container {
     display: flex;
@@ -1428,19 +1475,30 @@ body {
     padding: 2vh 0;
     cursor: none;
 
+    @media (max-width: $breakpoints-md-max) {
+      padding: 64px 0;
+    }
+
     &-container {
       position: relative;
       overflow: hidden;
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
+      z-index: 10;
+      background-color: $cl-text-primary-dark;
     }
 
     &-btn {
+      $width: 7vw;
+      font-size: $width / 7;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-70px, -70px) rotate(-15deg);
+      width: $width;
+      height: $width;
+      border-radius: $width / 2;
+      transform: translate(-$width / 2, -$width / 2) rotate(-15deg);
       cursor: none;
     }
   }
@@ -1504,8 +1562,11 @@ body {
   }
 
   &__info {
-    display: grid;
-    grid-template-columns: 150px 1fr;
+    @media (min-width: $breakpoints-lg-min) {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      min-height: 268px;
+    }
   }
 
   &__contacts-list {
@@ -1513,7 +1574,11 @@ body {
     display: flex;
     justify-content: space-between;
     border-left: 1px solid $cl-border-dark;
-    padding: 40px 20px;
+    padding: 44px 20px;
+
+    @media (max-width: $breakpoints-md-max) {
+      flex-direction: column;
+    }
 
     .contacts-list {
       &__item {
@@ -1532,7 +1597,7 @@ body {
     border-top: 1px solid $cl-border-dark;
     border-left: 1px solid $cl-border-dark;
     gap: 20px;
-    padding: 26px 20px;
+    padding: 14px 20px;
 
     &-left {
       display: flex;

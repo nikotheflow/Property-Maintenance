@@ -513,9 +513,6 @@ body {
 }
 
 .btn-tickers {
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
   border: none;
   color: #ffffff;
   background: rgba(138, 140, 206, 0.64);
@@ -541,13 +538,13 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 64px;
   background-color: #ffffff;
+  z-index: 5;
 }
 
-@media (max-width: 991.98px) {
+@media (min-width: 992px) {
   .navbar {
-    height: 48px;
+    height: 64px;
   }
 }
 
@@ -618,6 +615,12 @@ body {
 @media (max-width: 1199.98px) {
   .navbar__list {
     gap: 20px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar__list {
+    gap: 0px;
   }
 }
 
@@ -725,13 +728,21 @@ body {
   margin: 0px 8px;
 }
 
+@media (max-width: 991.98px) {
+  .navbar__divider {
+    display: none;
+  }
+}
+
 .navbar__dropdown {
   position: absolute;
   width: 100%;
   left: 0;
   overflow: hidden;
+  background-color: #2e2e2e;
   -webkit-transition: 0.4s cubic-bezier(0.87, 0, 0.13, 1);
   transition: 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+  z-index: 3;
 }
 
 @media (min-width: 992px) {
@@ -1322,6 +1333,7 @@ body {
 
 @media (max-width: 991.98px) {
   .header__navbar {
+    height: 48px;
     top: -48px;
   }
 }
@@ -1705,9 +1717,56 @@ body {
 }
 
 .footer {
-  height: 100vh;
   color: #ffffff;
   background-color: #2e2e2e;
+}
+
+@media (min-width: 992px) {
+  .footer {
+    height: 100vh;
+  }
+}
+
+.footer .navbar {
+  background-color: #2e2e2e;
+}
+
+@media (max-width: 991.98px) {
+  .footer .navbar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .footer .navbar__logo {
+    height: 64px;
+    width: 100%;
+  }
+  .footer .navbar__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+  }
+  .footer .navbar__link {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
+  }
+}
+
+.footer .navbar__item[data-link='dropdown']:hover > .navbar__dropdown {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.footer .navbar__dropdown {
+  border-color: #4d4d4d;
 }
 
 .footer__container {
@@ -1747,6 +1806,12 @@ body {
   cursor: none;
 }
 
+@media (max-width: 991.98px) {
+  .footer__tickers {
+    padding: 64px 0;
+  }
+}
+
 .footer__tickers-container {
   position: relative;
   overflow: hidden;
@@ -1760,14 +1825,20 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 10;
+  background-color: #2e2e2e;
 }
 
 .footer__tickers-btn {
+  font-size: 1vw;
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-70px, -70px) rotate(-15deg);
-          transform: translate(-70px, -70px) rotate(-15deg);
+  width: 7vw;
+  height: 7vw;
+  border-radius: 3.5vw;
+  -webkit-transform: translate(-3.5vw, -3.5vw) rotate(-15deg);
+          transform: translate(-3.5vw, -3.5vw) rotate(-15deg);
   cursor: none;
 }
 
@@ -1841,11 +1912,14 @@ body {
   }
 }
 
-.footer__info {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 150px 1fr;
-      grid-template-columns: 150px 1fr;
+@media (min-width: 992px) {
+  .footer__info {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 150px 1fr;
+        grid-template-columns: 150px 1fr;
+    min-height: 268px;
+  }
 }
 
 .footer__contacts-list {
@@ -1859,7 +1933,16 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   border-left: 1px solid #4d4d4d;
-  padding: 40px 20px;
+  padding: 44px 20px;
+}
+
+@media (max-width: 991.98px) {
+  .footer__contacts-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .footer__contacts-list .contacts-list__item {
@@ -1884,7 +1967,7 @@ body {
   border-top: 1px solid #4d4d4d;
   border-left: 1px solid #4d4d4d;
   gap: 20px;
-  padding: 26px 20px;
+  padding: 14px 20px;
 }
 
 .footer__copyright-left {
