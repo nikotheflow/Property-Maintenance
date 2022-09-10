@@ -10,16 +10,22 @@ document.addEventListener('DOMContentLoaded', function () {
     popup = document.querySelector('.popup'),
     popupFormBtn = document.querySelector('.popup__form-btn'),
     popupCloseBtn = document.querySelector('.navbar__btn-close'),
+    tickerRowContainers = document.querySelectorAll('.footer__ticker-row-container'),
     popupReturnBtn = document.querySelector('.popup__return-btn'),
     popupFormState = document.querySelector('.popup__wrapper-form'),
     popupSuccessState = document.querySelector('.popup__wrapper-success');
 
   let scrollWidth = window.innerWidth - body.clientWidth,
     burgerBtnPaddingRight = parseInt(window.getComputedStyle(burgerBtn).paddingRight);
+  let previousScrollY = 0;
+  let scrollDirection = 'down';
 
   window.addEventListener('scroll', function () {
     let scrollValue = window.scrollY;
     heroBehind.style.transform = `translateY(-${scrollValue / 5}px)`;
+
+    getScrollDirection();
+    setTickerDirection();
   });
 
   window.addEventListener('resize', () => {
@@ -95,5 +101,33 @@ document.addEventListener('DOMContentLoaded', function () {
   function removeScrollPadding() {
     body.style.paddingRight = 0;
     burgerBtn.style.paddingRight = `${burgerBtnPaddingRight}px`;
+  }
+
+  function getScrollDirection() {
+    let currentScrollY = window.scrollY;
+
+    if (currentScrollY > previousScrollY) {
+      if (scrollDirection !== 'down') {
+        scrollDirection = 'down';
+      }
+    } else {
+      if (scrollDirection !== 'up') {
+        scrollDirection = 'up';
+      }
+    }
+
+    previousScrollY = window.scrollY;
+  }
+
+  function setTickerDirection() {
+    if (scrollDirection === 'down') {
+      Array.from(tickerRowContainers).forEach(
+        (container) => (container.style.animationPlayState = 'paused'),
+      );
+    } else {
+      Array.from(tickerRowContainers).forEach(
+        (container) => (container.style.animationPlayState = 'running'),
+      );
+    }
   }
 });
