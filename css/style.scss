@@ -88,10 +88,8 @@ body {
   color: $cl-text-primary-dark;
   overflow-x: hidden;
 
-  @media (max-width: $breakpoints-md-max) {
-    &.lock {
-      overflow: hidden;
-    }
+  &.lock {
+    overflow: hidden;
   }
 }
 
@@ -100,6 +98,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: realtive;
 }
 
 .main {
@@ -111,6 +110,7 @@ body {
   margin: 0 auto;
   padding: 96px 40px;
 }
+
 // === /COMMONS ===
 
 // === COMPONENTS ===
@@ -126,7 +126,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 0 40px;
+  padding: 18px 40px;
   border: 1px solid $cl-border-light;
   background-color: inherit;
 }
@@ -206,7 +206,6 @@ body {
     display: none;
     padding: 16px;
     gap: 8px;
-    z-index: 10;
 
     @media (max-width: $breakpoints-md-max) {
       display: flex;
@@ -391,7 +390,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: $cl-text-primary-light;
-  z-index: 5;
+  z-index: 10;
 
   @media (min-width: $breakpoints-lg-min) {
     height: 64px;
@@ -432,6 +431,7 @@ body {
     align-items: center;
     transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
     background-color: inherit;
+    z-index: -1;
   }
 
   &__list {
@@ -561,7 +561,6 @@ body {
     overflow: hidden;
     background-color: $cl-text-primary-dark;
     transition: 0.4s cubic-bezier(0.87, 0, 0.13, 1);
-    z-index: 3;
 
     @media (min-width: $breakpoints-lg-min) {
       padding: 12px 0;
@@ -636,7 +635,7 @@ body {
   top: 100%;
   color: $cl-text-primary-light;
   background-color: $cl-text-primary-dark;
-  z-index: 15;
+  z-index: 20;
   transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
 
   &.active {
@@ -689,7 +688,7 @@ body {
     left: 0;
     border-bottom: 1px solid $cl-border-dark;
     transition: 0.6s cubic-bezier(0.87, 0, 0.13, 1);
-    z-index: 3;
+    // z-index: 10;
 
     .logo {
       border-bottom: none;
@@ -941,11 +940,11 @@ body {
         width: 100%;
         height: 100%;
         inset: 0;
-        z-index: -1;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         transition: transform 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+        z-index: -1;
       }
 
       &:hover {
@@ -962,7 +961,6 @@ body {
         inset: 0;
         background: url('../img/filters/noise.gif');
         opacity: 0.03;
-        z-index: -1;
       }
     }
 
@@ -1062,7 +1060,7 @@ body {
 
 // === HEADER ===
 .header {
-  z-index: 10;
+  // z-index: 10;
 
   &__container {
     padding: 0;
@@ -1087,7 +1085,7 @@ body {
         justify-content: flex-start;
         padding-left: 16px;
         border-right: none;
-        z-index: 10;
+        // z-index: 10;
       }
     }
 
@@ -1151,7 +1149,7 @@ body {
       content: '';
       position: absolute;
       inset: 0;
-      z-index: -2;
+      z-index: 1;
     }
 
     &::after {
@@ -1171,7 +1169,7 @@ body {
     height: 100vh;
     inset: 0;
     object-fit: cover;
-    z-index: -3;
+    z-index: 1;
   }
 
   &__image-front {
@@ -1181,7 +1179,7 @@ body {
     inset: 0;
     top: 70vh;
     object-fit: cover;
-    z-index: 0;
+    z-index: 3;
   }
 
   &__text-block {
@@ -1190,11 +1188,13 @@ body {
     width: 60vw;
     color: $cl-text-primary-light;
     text-align: center;
-    z-index: -1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
   }
 
   &__title {
@@ -1218,6 +1218,7 @@ body {
   position: relative;
   height: 450px;
   background-color: $cl-text-primary-light;
+  z-index: 4;
 
   &__container {
     display: flex;
@@ -1239,7 +1240,9 @@ body {
 
 // === WORK WITH ===
 .work-with {
-  //background-color: $cl-text-primary-light;
+  position: relative;
+  z-index: 2;
+  background-color: $cl-text-primary-light;
   &__container {
     padding-top: 140px;
   }
@@ -1257,8 +1260,10 @@ body {
 
 // === FEATURES ===
 .features {
+  position: relative;
   color: $cl-text-primary-light;
   background-color: $cl-text-primary-dark;
+  z-index: 2;
 
   &__container {
     display: grid;
@@ -1364,15 +1369,14 @@ body {
     }
   }
 }
-
-.cards-wrapper {
-  width: 100%;
-  height: 100%;
-}
 // === /FEATURES ===
 
 // === NEWS ===
 .news {
+  position: relative;
+  background-color: $cl-text-primary-light;
+  z-index: 2;
+
   &__title {
     margin: 0;
   }
@@ -1416,7 +1420,10 @@ body {
   background-color: $cl-text-primary-dark;
 
   @media (min-width: $breakpoints-lg-min) {
+    position: sticky;
+    bottom: 0;
     height: 100vh;
+    z-index: 0;
   }
 
   .navbar {
@@ -1428,12 +1435,13 @@ body {
       &__logo {
         height: 64px;
         width: 100%;
+        border-bottom: none;
       }
 
       &__list {
         flex-direction: column;
         align-items: center;
-        padding: 0;
+        padding: 12px 0;
       }
 
       &__link {
@@ -1485,7 +1493,7 @@ body {
       flex: 1 1 auto;
       display: flex;
       flex-direction: column;
-      z-index: 10;
+      z-index: 11;
       background-color: $cl-text-primary-dark;
     }
 
@@ -1553,9 +1561,6 @@ body {
           color: $cl-text-primary-dark;
           text-shadow: 1px 0 1px $cl-text-primary-light, 0 1px 1px $cl-text-primary-light,
             -1px 0 1px $cl-text-primary-light, 0 -1px 1px $cl-text-primary-light;
-          // color: transparent;
-          // -webkit-text-stroke-width: 1px;
-          // -webkit-text-stroke-color: $cl-text-primary-light;
         }
       }
     }
@@ -1578,12 +1583,28 @@ body {
 
     @media (max-width: $breakpoints-md-max) {
       flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 16px;
     }
 
     .contacts-list {
       &__item {
         max-width: 300px;
       }
+
+      &__link {
+        @media (max-width: $breakpoints-md-max) {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__contacts-item {
+    @media (max-width: $breakpoints-md-max) {
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -1599,11 +1620,24 @@ body {
     gap: 20px;
     padding: 14px 20px;
 
+    @media (max-width: $breakpoints-md-max) {
+      flex-direction: column;
+    }
+
     &-left {
       display: flex;
       align-items: center;
       gap: 20px;
+
+      @media (max-width: $breakpoints-md-max) {
+        flex-direction: column;
+      }
     }
   }
 }
 // === /FOOTER ===
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const body = document.querySelector('body'),
+    heroTextBlock = document.querySelector('.hero__text-block'),
     heroBehind = document.querySelector('.hero__image-behind'),
     headerNavbar = document.querySelector('.header__navbar'),
     burgerBtn = document.querySelector('.btn-burger'),
@@ -28,6 +29,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     getScrollDirection();
     setTickerDirection();
+
+    scrollValue > window.innerHeight * 2
+      ? heroTextBlock.classList.remove('visible')
+      : heroTextBlock.classList.add('visible');
   });
 
   window.addEventListener('resize', () => {
@@ -68,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   popupCloseBtn.addEventListener('click', () => {
     popup.classList.remove('active');
+
+    body.classList.remove('lock');
+    removeScrollPadding();
   });
 
   popupReturnBtn.addEventListener('click', () => {
@@ -76,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (body.clientWidth < 991.98) {
       clickBurgerBtn();
     }
+
+    body.classList.remove('lock');
+    removeScrollPadding();
   });
 
   tickersSection.addEventListener('mousemove', (e) => {
@@ -95,18 +106,25 @@ document.addEventListener('DOMContentLoaded', function () {
     burgerBtnText.innerText = burgerBtn.classList.contains('active') ? 'закрыть' : 'меню';
 
     if (body.classList.contains('lock')) {
-      body.style.paddingRight = `${scrollWidth}px`;
-      burgerBtn.style.paddingRight = `${scrollWidth + burgerBtnPaddingRight}px`;
+      addScrollPadding();
     } else {
       removeScrollPadding();
     }
   }
 
   function clickContactBtn() {
+    body.classList.add('lock');
+    addScrollPadding();
+
     popup.classList.toggle('active');
 
     popupFormState.classList.add('active');
     popupSuccessState.classList.remove('active');
+  }
+
+  function addScrollPadding() {
+    body.style.paddingRight = `${scrollWidth}px`;
+    burgerBtn.style.paddingRight = `${scrollWidth + burgerBtnPaddingRight}px`;
   }
 
   function removeScrollPadding() {
