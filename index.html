@@ -35,7 +35,7 @@
                 fill="#2E2E2E" />
             </svg>
           </div>
-          <button class="navbar__btn-burger btn btn-burger">
+          <button class="navbar__btn-burger btn-filled btn btn-burger">
             <div class="btn-burger__icon">
               <span></span>
             </div>
@@ -44,7 +44,13 @@
           <div class="navbar__menu">
             <ul class="navbar__list">
               <li class="navbar__item" data-link="dropdown">
-                <a class="navbar__link link"><span>Управление недвижимостью</span>
+                <a class="link-move navbar__link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Управление недвижимостью</span>
+                      <span>Управление недвижимостью</span>
+                    </div>
+                  </div>
                   <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
@@ -63,10 +69,23 @@
                 </ul>
               </li>
               <li class="navbar__item">
-                <a class="navbar__link link">Продажа и аренда</a>
+                <a class="link-move navbar__link link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Продажа и аренда</span>
+                      <span>Продажа и аренда</span>
+                    </div>
+                  </div>
+                </a>
               </li>
               <li class="navbar__item" data-link="dropdown">
-                <a class="navbar__link link">Консалтинг
+                <a class="link-move navbar__link link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Консалтинг</span>
+                      <span>Консалтинг</span>
+                    </div>
+                  </div>
                   <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
@@ -77,7 +96,8 @@
                 </ul>
               </li>
             </ul>
-            <button class="navbar__btn-contact btn">Связаться с нами
+            <button class="navbar__btn-contact btn-filled btn">
+              <span>Связаться с нами</span>
               <div class="btn-arrow">
                 <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -93,8 +113,9 @@
     <main class="main">
       <section class="hero">
         <div class="hero__container">
-          <img src="/img/hero/hero-behind.png" class="hero__image-behind">
-          <img src="/img/hero/hero-front.png" class="hero__image-front">
+
+          <img class="hero__image-behind" src="img/hero/hero-behind.png" alt="sky-background">
+          <img class="hero__image-front" src="img/hero/hero-front.png" alt="city-background">
           <div class="hero__text-block visible">
             <h1 class="hero__title">Управляющая компания и брокер с базой
               недвижимости в 7 городах России</h1>
@@ -186,7 +207,13 @@
                   решаем юридические вопросы, готовим налоговые
                   отчёты и нанимаем персонал.</p>
               </div>
-              <a class="work-card__link link">Подробнее
+              <a class="work-card__link link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Подробнее</span>
+                    <span>Подробнее</span>
+                  </div>
+                </div>
                 <div class="btn-arrow">
                   <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -314,7 +341,13 @@
                   можно будет сдавать в аренду.</p>
               </div>
 
-              <a class="work-card__link link">Подробнее
+              <a class="work-card__link link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Подробнее</span>
+                    <span>Подробнее</span>
+                  </div>
+                </div>
                 <div class="btn-arrow">
                   <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -425,7 +458,13 @@
                   поломки и следим за исправностью всех внутридомовых
                   систем.</p>
               </div>
-              <a class="work-card__link link">Подробнее
+              <a class="work-card__link link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Подробнее</span>
+                    <span>Подробнее</span>
+                  </div>
+                </div>
                 <div class="btn-arrow">
                   <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -554,7 +593,7 @@
         <div class="news__container">
           <div class="news__header">
             <h2 class="news__title section-title">Наши новости</h2>
-            <a href="#" class="news__link link btn">Все новости
+            <a href="#" class="news__link link btn-filled btn">Все новости
               <div class="btn-arrow">
                 <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -636,11 +675,25 @@
           <ul class="popup__contacts-list contacts-list">
             <li class="contacts-list__item">
               <span class="contacts-list__title">Пишите</span>
-              <a class="contacts-list__value link">info@info.com</a>
+              <a class="contacts-list__value link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>info@info.com</span>
+                    <span>info@info.com</span>
+                  </div>
+                </div>
+              </a>
             </li>
             <li class="contacts-list__item">
               <span class="contacts-list__title">Звоните</span>
-              <a class="contacts-list__value link">8 (800) 000-00-00</a>
+              <a class="contacts-list__value link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>8 (800) 000-00-00</span>
+                    <span>8 (800) 000-00-00</span>
+                  </div>
+                </div>
+              </a>
             </li>
           </ul>
           <form class="popup__form form" action="" method="post">
@@ -654,7 +707,7 @@
               <span class="form__label-text">Телефон</span>
             </label>
 
-            <button class="popup__form-btn form__btn btn">Заказать обратный звонок
+            <button class="popup__form-btn form__btn btn-filled btn">Заказать обратный звонок
               <div class="btn-arrow">
                 <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -663,20 +716,29 @@
                 </svg>
               </div>
             </button>
-            <p class="form__text">
+            <div class="form__text">
               Нажимая на кнопку «Заказать обратный звонок», вы даете согласие на обработку персональных данных
-              и соглашаетесь с <a class="form__link link link_underline" href="#">политикой конфиденциальности</a>
-            </p>
+              и соглашаетесь с
+              <a href="#" class="popup__link link_underline link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Политикой конфиденциальности</span>
+                    <span>Политикой конфиденциальности</span>
+                  </div>
+                </div>
+              </a>
+
+            </div>
           </form>
         </div>
 
         <div class="popup__wrapper popup__wrapper-success">
-          <img src="/img/popup/phone.svg" alt="phone icon" width="150" height="150">
+          <img src="img/popup/phone.svg" alt="phone icon" width="150" height="150">
           <div class="popup__text-block">
             <h2 class="popup__title">Звонок успешно заказан!</h2>
             <h3 class="popup__subtitle">В ближайшее время наш менеджер свяжется с вами.</h3>
           </div>
-          <button class="popup__return-btn form__btn btn">Вернуться на главную
+          <button class="popup__return-btn btn-filled btn">Вернуться на главную
             <div class="btn-arrow">
               <svg class="btn-arrow__icon" width="9" height="9" viewBox="0 0 9 9" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -789,7 +851,13 @@
           <div class="navbar__menu">
             <ul class="navbar__list">
               <li class="navbar__item" data-link="dropdown">
-                <a class="navbar__link link"><span>Управление недвижимостью</span>
+                <a class="link-move navbar__link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Управление недвижимостью</span>
+                      <span>Управление недвижимостью</span>
+                    </div>
+                  </div>
                   <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
@@ -808,10 +876,23 @@
                 </ul>
               </li>
               <li class="navbar__item">
-                <a class="navbar__link link">Продажа и аренда</a>
+                <a class="link-move navbar__link link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Продажа и аренда</span>
+                      <span>Продажа и аренда</span>
+                    </div>
+                  </div>
+                </a>
               </li>
               <li class="navbar__item" data-link="dropdown">
-                <a class="navbar__link link">Консалтинг
+                <a class="link-move navbar__link link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Консалтинг</span>
+                      <span>Консалтинг</span>
+                    </div>
+                  </div>
                   <div class="navbar__btn-dropdown btn-dropdown">
                   </div>
                 </a>
@@ -822,7 +903,16 @@
                 </ul>
               </li>
               <li class="navbar__divider"></li>
-              <li class="navbar__item"><a class="navbar__link link">Новости</a></li>
+              <li class="navbar__item">
+                <a class="link-move navbar__link link">
+                  <div class="link-move__area">
+                    <div class="link-move__inner">
+                      <span>Новости</span>
+                      <span>Новости</span>
+                    </div>
+                  </div>
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -830,18 +920,50 @@
           <ul class="footer__contacts-list contacts-list">
             <li class="footer__contacts-item contacts-list__item">
               <span class="footer__contacts-title contacts-list__title">Приезжайте в наш офис</span>
-              <a class="footer__contacts-value contacts-list__value contacts-list__address link">Самарская область,
-                Тольятти, ул. Пушкина, 10,
-                офис 1408</a>
-              <a href="#" class="footer__contacts-link contacts-list__link link link_underline">Смотреть на карте</a>
+              <div class="footer__contacts-value contacts-list__value contacts-list__address link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Самарская область, Тольятти,</span>
+                    <span>Самарская область, Тольятти,</span>
+                  </div>
+                </div>
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>ул. Пушкина, 10, офис 1408</span>
+                    <span>ул. Пушкина, 10, офис 1408</span>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="footer__contacts-link contacts-list__link link_underline link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Смотреть на карте</span>
+                    <span>Смотреть на карте</span>
+                  </div>
+                </div>
+              </a>
             </li>
             <li class="footer__contacts-item contacts-list__item">
               <span class="footer__contacts-title contacts-list__title">Звоните</span>
-              <a class="footer__contacts-value contacts-list__value link">8 (800) 000-00-00</a>
+              <a class="footer__contacts-value contacts-list__value link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>8 (800) 000-00-00</span>
+                    <span>8 (800) 000-00-00</span>
+                  </div>
+                </div>
+              </a>
             </li>
             <li class="footer__contacts-item contacts-list__item">
               <span class="footer__contacts-title contacts-list__title">Пишите</span>
-              <a class="footer__contacts-value contacts-list__value link">info@info.com</a>
+              <a class="footer__contacts-value contacts-list__value link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>info@info.com</span>
+                    <span>info@info.com</span>
+                  </div>
+                </div>
+              </a>
             </li>
             <li class="footer__contacts-item contacts-list__item">
               <span class="footer__contacts-title contacts-list__title">Следите за нами</span>
@@ -868,7 +990,14 @@
           <div class="footer__copyright">
             <div class="footer__copyright-left">
               <div class="footer__copyright-years">© 2000 — 2022. Все права защищены</div>
-              <div class="footer__copyright-link link link_underline">политика конфиденциальности</div>
+              <a class="footer__copyright-link link_underline link-move link">
+                <div class="link-move__area">
+                  <div class="link-move__inner">
+                    <span>Политика конфиденциальности</span>
+                    <span>Политика конфиденциальности</span>
+                  </div>
+                </div>
+              </a>
             </div>
             <div class="footer__copyright-author">сайт сделан в CEDRO, свёрстан NIKOTHEFLOW</div>
           </div>

@@ -74,8 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
   popupCloseBtn.addEventListener('click', () => {
     popup.classList.remove('active');
 
-    body.classList.remove('lock');
-    removeScrollPadding();
+    if (body.clientWidth >= 992) {
+      body.classList.remove('lock');
+      removeScrollPadding();
+    }
   });
 
   popupReturnBtn.addEventListener('click', () => {
